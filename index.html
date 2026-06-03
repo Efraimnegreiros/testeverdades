@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Storybook - Uma Página por Vez</title>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f3eaf4; /* Lilás bem claro para o fundo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+        }
+
+        /* Container ajustado para o tamanho de APENAS UMA página */
+        .book-container {
+            width: 450px;
+            height: 600px;
+            box-shadow: 0 12px 24px rgba(118, 76, 122, 0.25);
+            perspective: 1500px;
+        }
+
+        /* Estilo padrão de cada página */
+        .page {
+            width: 450px;
+            height: 600px;
+            padding: 40px;
+            background-color: #fffafc; /* Rosa suave quase branco para as páginas */
+            color: #4a3b4c; /* Texto cinza-escuro arroxeado */
+            border: 1px solid #e8d3e6; /* Borda rosa/lilás suave */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Capa (Página 1) */
+        .page-cover {
+            background-color: #7b5284; /* Lilás escuro/Plum para a capa */
+            color: #fff0f5; /* Texto rosa-lavanda claro */
+            border: none;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .page-cover h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #fff0f5;
+            padding-bottom: 10px;
+        }
+
+        /* Contra-capa (Página Final) */
+        .page-back {
+            background-color: #7b5284;
+            color: #fff0f5;
+            border: none;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Páginas de conteúdo interno */
+        .page h2 {
+            font-size: 1.5rem;
+            color: #9c4a8b; /* Rosa marcante para os títulos */
+            margin-bottom: 15px;
+        }
+
+        .page p {
+            font-size: 1rem;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        /* Estilo da caixa De/Para */
+        .dedication-box {
+            width: 100%;
+            border: 2px dashed #b886b2;
+            background-color: #fdf2fa; /* Fundo rosa bem suave */
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .dedication-field {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #4a3b4c;
+        }
+
+        .dedication-field strong {
+            color: #9c4a8b;
+        }
+
+        .dedication-text {
+            font-style: italic;
+            text-align: center !important;
+            color: #6b526e;
+            margin-top: 15px;
+            line-height: 1.5;
+        }
+
+        /* Espaço para as Imagens */
+        .page-image {
+            width: 100%;
+            height: 250px;
+            background-color: #ebdbe8;
+            margin: 15px 0;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(156, 74, 139, 0.15);
+        }
+
+        .page-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Número da página */
+        .page-footer {
+            font-size: 0.85rem;
+            color: #a68fa3;
+        }
+        
+        .page-back .page-footer, .page-cover .page-footer {
+            color: #e8d3e6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="book-container" id="storybook">
+        
+        <!-- PÁGINA 1: CAPA (Sem Imagem) -->
+        <div class="page page-cover">
+            <h1>A misteriosa surpresa de Zé, para a senhora Faltante</h1>
+            <p>Um pequeno livro para lembrar alguns bons momentos</p>
+            <div class="page-footer">Toque para passar →</div>
+        </div>
+
+        <!-- PÁGINA 2: DE/PARA (Nova Página) -->
+        <div class="page">
+            <h2>Uma Surpresa para Você</h2>
+            <div class="dedication-box">
+                <div class="dedication-field"><strong>De:</strong> Efraim Negreiros</div>
+                <div class="dedication-field"><strong>Para:</strong> Sua amiga e irmã Ingrid Barbosa</div>
+            </div>
+            <p class="dedication-text">
+                "Em todo o tempo ama o amigo; e na angústia nasce o irmão." – Provérbios 17:17
+		<br>
+		"Assim como os perfumes alegram a vida, a amizade sincera dá ânimo para viver." – Provérbios 27:9
+		<br>
+		Esses versículos narram a nossa amizade, titia faltante!!
+            </p>
+            <div class="page-footer">Pág. 2</div>
+        </div>
+
+        <!-- PÁGINA 3: (Com Imagem 1) -->
+        <div class="page">
+            <h2>Capítulo 1: I</h2>
+            <div class="page-image">
+                <img src="https://picsum.photos/400/250?random=1" alt="Imagem 1">
+            </div>
+            <p>Vc é uma irmã! Não diria que é como, porque eu seria muito raso, mas afirmo que vc <strong>é</strong> uma irmã para mim, tia Ingrid...</p>
+	    <p>Tanto eu como vc enfretou, até aqui em nossa amizade, altos e baixos, mas temos nos ajudado e animado uns aos outros em meio a esses montes e vales que aparecem. Muito, mas muito, obrigado por isso...</p>
+            <div class="page-footer">Pág. 3</div>
+        </div>
+
+        <!-- PÁGINA 4: (Com Imagem 2) -->
+        <div class="page">
+            <h2>Capítulo 2: N</h2>
+            <div class="page-image">
+                <img src="https://picsum.photos/400/250?random=2" alt="Imagem 2">
+            </div>
+            <p> Tu és uma pessoa <strong>Nobre</strong>.</p>
+	    <p>Vc é uma pessoa bem transparente e leal em tudo!</p>
+            <div class="page-footer">Pág. 4</div>
+        </div>
+
+        <!-- PÁGINA 5: (Com Imagem 3) -->
+        <div class="page">
+            <h2>Capítulo 3: G</h2>
+            <div class="page-image">
+                <img src="https://picsum.photos/400/250?random=3" alt="Imagem 3">
+            </div>
+            <p> Vc é uma pessoa <strong>Graçosa</strong>.</p>
+	    <p>No sentido mais divertido e respeitoso da palavra, vc sabe trazer graça e leveza para o dia a dia.</p>
+            <div class="page-footer">Pág. 5</div>
+        </div>
+
+        <!-- PÁGINA 6: (Com Imagem 4) -->
+        <div class="page">
+            <h2>Capítulo 4: R</h2>
+            <div class="page-image">
+                <img src="https://picsum.photos/400/250?random=4" alt="Imagem 4">
+            </div>
+            <p> Vc é <strong>Risonha e Rara</strong>!!</p>
+	    <p>A senhora não perde a piada, sabe me fazer rir até nos momentos mais difíceis. Além disso, és uma pessoa preciosa e única, daquelas difíceis de encontrar na vida e que quero por perto para sempre!!</p>
+            <div class="page-footer">Pág. 6</div>
+        </div>
+
+        <!-- PÁGINA 7: (Com Imagem 5) -->
+        <div class="page">
+            <h2>Capítulo 5: I</h2>
+            <div class="page-image">
+                <img src="https://picsum.photos/400/250?random=5" alt="Imagem 5">
+            </div>
+            <p> Tu és <strong>Incondicional</strong>!!</p>
+            <p>Uma irmã de pais diferentes para todas as horas, cujo apoio não tem condições nem prazos de validade.</p>
+            <div class="page-footer">Pág. 7</div>
+        </div>
+
+        <!-- PÁGINA 8: (Com Imagem 6) -->
+        <div class="page">
+            <h2>Capítulo 6: D</h2>
+            <div class="page-image">
+                <img src="https://picsum.photos/400/250?random=6" alt="Imagem 6">
+            </div>
+            <p> Tu és <strong>Divertida e Dedicada</strong>!!</p>
+            <p>A amiga ideal para dar risada, criar memórias e "tirar onda" com tudo, inclusive com os seus puns que fedem a "rosas" que ninguém gostaria de ter uma em casa kkkkk</p>
+	    <p>Além disso, investes tempo, carinho e amor para a nossa amizade crescer e ficar firme a cada dia mais!!</p>
+            <div class="page-footer">Pág. 8</div>
+        </div>
+
+        <!-- PÁGINA 9: (Com Imagem 7) -->
+        <div class="page">
+            <h2>Gratidão</h2>
+            <div class="page-image">
+                <img src="https://picsum.photos/400/250?random=7" alt="Imagem 7">
+            </div>
+            <p>Faltam palavras para expressar o quanto sou grato a Deus por te ter como irmã de outros pais...</p>
+	    <p>Quero que saibas que nada mudou na nossa amizade e irmandade!</p>
+            <div class="page-footer">Pág. 9</div>
+        </div>
+
+        <!-- PÁGINA 10: (Com Imagem 8) -->
+        <div class="page">
+            <div class="page-image">
+                <img src="https://picsum.photos/400/250?random=8" alt="Imagem 8">
+            </div>
+            <p>Quando as ondas das tempestades baterem no barco da nossa amizade, saiba que é para que o barco da nossa amizade fique mais resistente e seguro!</p>
+            <div class="page-footer">Pág. 10</div>
+        </div>
+
+        <!-- PÁGINA 11: CONTRA-CAPA (Sem Imagem) -->
+        <div class="page page-back">
+            <h2>Fim</h2>
+            <p>Obrigado por ler este pequeno livro, tia Ingrid!</p>
+	    <p>Amo vc, senhora faltante!</p>
+            <div class="page-footer">Não sou das palavras como vc é, mas esse pequeno livro foi do fundo do meu coração e com a mais pura e genuína sinceridade e amor que tenho por vc💜</div>
+        </div>
+
+    </div>
+
+    <!-- Script da biblioteca PageFlip -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip@0.4.3/dist/js/page-flip.browser.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pageFlip = new St.PageFlip(
+                document.getElementById('storybook'),
+                {
+                    width: 450, // Largura da página única
+                    height: 600, // Altura da página
+                    size: "fixed",
+                    drawShadow: true,
+                    showCover: false, // Desativado para manter o modo retrato único consistente
+                    usePortrait: true, // Força a exibição de apenas UMA página por vez
+                    mode: "portrait" // Configura o modo para retrato
+                }
+            );
+
+            pageFlip.loadFromHTML(document.querySelectorAll('.page'));
+        });
+    </script>
+</body>
+</html>
